@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Isotope Image Filter</title>
+</head>
+
+<body>
+    <section class="container">
+        <div class="portfolio-menu">
+            <ul>
+                <li class="active" data-filter="*">All</li>
+                <li data-filter=".web">Web Design</li>
+                <li data-filter=".seo">SEO</li>
+                <li data-filter=".graphics">Graphics</li>
+            </ul>
+        </div>
+
+        <div class="portfolio-item">
+            <div class="item web">
+                <img src="./img/1.jpg" alt="">
+            </div>
+            <div class="item seo">
+                <img src="./img/2.jpg" alt="">
+            </div>
+            <div class="item graphics">
+                <img src="./img/3.jpg" alt="">
+            </div>
+            <div class="item seo">
+                <img src="./img/4.jpg" alt="">
+            </div>
+            <div class="item seo">
+                <img src="./img/5.jpg" alt="">
+            </div>
+            <div class="item graphics">
+                <img src="./img/6.jpg" alt="">
+            </div>
+            <div class="item web">
+                <img src="./img/7.jpg" alt="">
+            </div>
+            <div class="item seo">
+                <img src="./img/8.jpg" alt="">
+            </div>
+            <div class="item graphics">
+                <img src="./img/9.jpg" alt="">
+            </div>
+            <div class="item graphics">
+                <img src="./img/1.jpg" alt="">
+            </div>
+            <div class="item web">
+                <img src="./img/5.jpg" alt="">
+            </div>
+            <div class="item web">
+                <img src="./img/9.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Js files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script>
+        $('.portfolio-item').isotope({
+            itemSelector: '.item',
+            layoutMode: 'fitRows'
+        });
+        $('.portfolio-menu ul li').click(function () {
+            $('.portfolio-menu ul li').removeClass('active');
+            $(this).addClass('active');
+
+            var selector = $(this).attr('data-filter');
+            $('.portfolio-item').isotope({
+                filter: selector
+            });
+            return false;
+        });
+    </script>
+</body>
+
+</html>
